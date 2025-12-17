@@ -1,0 +1,580 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe0b3 100%);
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header-actions span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.header-actions button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.header-actions button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.login-container {
+  max-width: 450px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.15);
+  border: 1px solid #ffe0b3;
+}
+
+.login-container h2 {
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-container input {
+  padding: 15px 20px;
+  border: 2px solid #ffe0b3;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff9f0;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.login-container button {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.login-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.login-container p {
+  color: #ff6b35;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.login-container p:hover {
+  color: #ff8c42;
+}
+
+.shows-container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+  border: 1px solid #ffe0b3;
+}
+
+.shows-container h2 {
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.shows-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.show-card {
+  background: linear-gradient(135deg, #fff9f0 0%, #ffe0b3 100%);
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid #ffe0b3;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.show-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #ffcc02, #ff6b35);
+}
+
+.show-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.2);
+  border-color: #ff6b35;
+}
+
+.show-card h3 {
+  color: #ff6b35;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.show-card p {
+  color: #666;
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.show-card button {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.show-card button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.show-card button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Seat Selection Styles */
+.seat-selection {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+  border: 1px solid #ffe0b3;
+}
+
+.seat-selection h2 {
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.screen {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+  padding: 15px;
+  margin: 30px 0;
+  border-radius: 25px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 30px 0;
+  padding: 20px;
+  background: #fff9f0;
+  border-radius: 15px;
+  border: 2px solid #ffe0b3;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.seat {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ffe0b3;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.seat.available {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border-color: #28a745;
+}
+
+.seat.available:hover {
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(40, 167, 69, 0.4);
+}
+
+.seat.selected {
+  background: linear-gradient(135deg, #ffcc02 0%, #ffd700 100%);
+  color: #333;
+  border-color: #ffcc02;
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(255, 204, 2, 0.4);
+}
+
+.seat.booked {
+  background: #dc3545;
+  color: white;
+  cursor: not-allowed;
+  border-color: #dc3545;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 25px 0;
+  padding: 20px;
+  background: #fff9f0;
+  border-radius: 15px;
+  border: 2px solid #ffe0b3;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #666;
+}
+
+.booking-summary {
+  background: linear-gradient(135deg, #fff9f0 0%, #ffe0b3 100%);
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 25px;
+  border: 2px solid #ffe0b3;
+  text-align: center;
+}
+
+.booking-summary p {
+  color: #ff6b35;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.booking-summary button {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.booking-summary button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+.booking-summary button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Booking History Styles */
+.booking-history {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
+  border: 1px solid #ffe0b3;
+}
+
+.booking-history h2 {
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.booking-card {
+  background: linear-gradient(135deg, #fff9f0 0%, #ffe0b3 100%);
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid #ffe0b3;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.booking-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #ffcc02, #ff6b35);
+}
+
+.booking-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 107, 53, 0.15);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.booking-header h3 {
+  color: #ff6b35;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.status {
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.booking-details p {
+  margin: 8px 0;
+  color: #666;
+  font-weight: 500;
+}
+
+.cancel-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #e74c3c 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(220, 53, 69, 0.3);
+}
+
+.cancel-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+}
+
+.back-btn {
+  background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(108, 117, 125, 0.4);
+}
+
+.payment-container {
+  max-width: 600px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(255, 107, 53, 0.15);
+  border: 1px solid #ffe0b3;
+}
+
+.payment-container h2 {
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.payment-options p {
+  color: #666;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  padding: 15px;
+  background: #fff9f0;
+  border-radius: 10px;
+  border: 2px solid #ffe0b3;
+}
+
+.payment-options button {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+}
+
+.payment-options button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .shows-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .legend {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .seat-map {
+    padding: 10px;
+  }
+  
+  .seat {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+  }
+}
