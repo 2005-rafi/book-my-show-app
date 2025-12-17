@@ -13,7 +13,7 @@ A minimal movie ticket booking system with React frontend and Flask backend.
 - **Frontend**: React.js with React Router
 - **Backend**: Python Flask with CORS
 - **Database**: MongoDB
-- **Caching**: Redis
+- **Caching**: Redis 
 
 ## Setup Instructions
 
